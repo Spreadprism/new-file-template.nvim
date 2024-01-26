@@ -1,5 +1,6 @@
 local state = {
 	disable_insert = false,
+	disable_autosave = false,
 	disable_autocmd = {},
 	disable_specific = {},
 	disable_filetype = {},

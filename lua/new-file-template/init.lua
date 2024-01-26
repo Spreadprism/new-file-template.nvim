@@ -8,6 +8,7 @@ function M.setup(opts)
 
 	state.setState({
 		disable_insert = opts.disable_insert or false,
+		disable_autosave = opts.disable_autosave or false,
 		disable_autocmd = opts.disable_autocmd or {},
 		disable_specific = opts.disable_specific or {},
 		disable_filetype = opts.disable_filetype or {},
@@ -50,6 +51,9 @@ function M.on_buf_enter()
 	end
 
 	M.insert_template()
+	if ~state.getState().disable_autosave then
+		vim.cmd("silent! write")
+	end
 end
 
 function M.open_user_config(filetype)
