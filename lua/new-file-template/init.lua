@@ -51,7 +51,7 @@ function M.on_buf_enter()
 	end
 
 	M.insert_template()
-	if ~state.getState().disable_autosave then
+	if not state.getState().disable_autosave then
 		vim.cmd("silent! write")
 	end
 end
